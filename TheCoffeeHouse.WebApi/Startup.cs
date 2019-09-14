@@ -44,7 +44,7 @@ namespace TheCoffeeHouse.WebApi
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "Eshop Api",
+                    Title = "The Coffee House Api",
                     Description = "A simple example ASP.NET Core Web API",
                 });
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
