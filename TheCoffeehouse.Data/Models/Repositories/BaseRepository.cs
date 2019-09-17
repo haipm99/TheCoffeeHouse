@@ -14,7 +14,6 @@ namespace TheCoffeehouse.Data.Models.Repositories
         E Update(E entity);
         E GetById(K id);
 
-        E Login(string username, string password);
     }
 
     public abstract class BaseRepository<E, K> : IBaseRepository<E, K> where E : class
@@ -47,7 +46,6 @@ namespace TheCoffeehouse.Data.Models.Repositories
 
         public abstract E GetById(K id);
 
-        public abstract E Login(string username, string password);
 
         public E Update(E entity)
         {

@@ -8,6 +8,8 @@ namespace TheCoffeehouse.Data.Models.Repositories
 {
     public interface IAppUsersRepository : IBaseRepository<AppUsers,string>
     {
+        AppUsers Login(string username, string password);
+
     }
 
     public class AppUsersRepository : BaseRepository<AppUsers, string>, IAppUsersRepository
@@ -21,7 +23,7 @@ namespace TheCoffeehouse.Data.Models.Repositories
             return _dbSet.FirstOrDefault(user => user.Id == id);
         }
 
-        public override AppUsers Login(string username, string password)
+        public  AppUsers Login(string username, string password)
         {
             return _dbSet.FirstOrDefault(user => user.Username == username && user.Password == password);
         }

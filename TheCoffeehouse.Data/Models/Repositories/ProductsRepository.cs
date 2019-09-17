@@ -22,10 +22,7 @@ namespace TheCoffeehouse.Data.Models.Repositories
             return _dbSet.FirstOrDefault(p => p.Id == id);
         }
 
-        public override Products Login(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
 }

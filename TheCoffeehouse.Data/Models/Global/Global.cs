@@ -16,9 +16,13 @@ namespace TheCoffeehouse.Data.Models.Global
                 .AddScoped<IAppUsersRepository, AppUsersRepository>()
                 .AddScoped<IProductsRepository, ProductsRepository>()
                 .AddScoped<IPostsRepository, PostsRepository>()
+                .AddScoped<IInvoicesRepository, InvoiceRepository>()
+                .AddScoped<IInvoiceDetailRepository, InvoiceDetailRepository>()
                 .AddScoped<AppUsersDomains>()
                 .AddScoped<PostsDomains>()
-                .AddScoped<ProductsDomains>();
+                .AddScoped<ProductsDomains>()
+                .AddScoped<InvoiceDetailDomains>()
+                .AddScoped<InvoiceDomains>();
         }
     }
 }

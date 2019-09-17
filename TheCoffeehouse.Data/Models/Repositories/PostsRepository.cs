@@ -24,9 +24,6 @@ namespace TheCoffeehouse.Data.Models.Repositories
             return _dbSet.FirstOrDefault(p => p.Id == id);
         }
 
-        public override Posts Login(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
