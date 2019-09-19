@@ -77,6 +77,12 @@ namespace TheCoffeeHouse.WebApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.RoutePrefix = "";
             });
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyOrigin();
+                opt.AllowAnyMethod();
+                opt.AllowAnyHeader();
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();

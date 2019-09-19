@@ -32,6 +32,7 @@ namespace TheCoffeeHouse.WebApi.Controllers
                 title = p.Title,
                 content = p.Content,
                 postedDate = p.PostedDate,
+                img = p.Img
             }));
         }
 
