@@ -36,9 +36,10 @@ namespace TheCoffeeHouse.WebApi.Controllers
                     Id = p.Id,
                     Name = p.Name,
                     Price = p.Price,
-                    TypeId = p.TypeId,
+                    TypeId = p.TypeId.Split("-")[0],
                     Description = p.Description,
-                    Img = p.Img
+                    Img = p.Img,
+                    Type = p.TypeId.Split("-")[1]
                 };
                 mylist.Add(a);
             }

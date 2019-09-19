@@ -110,7 +110,7 @@ namespace TheCoffeeHouse.WebApi.Controllers
 
         //desc : Update post
         //url :
-        [HttpPatch("{id}")]
+        [HttpPost("update/{id}")]
         public IActionResult Update(string id,PostsModelUpdate model)
         {
             var repo = _uow.GetService<PostsDomains>();

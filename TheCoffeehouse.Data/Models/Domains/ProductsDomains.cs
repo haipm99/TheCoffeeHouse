@@ -16,7 +16,14 @@ namespace TheCoffeehouse.Data.Models.Domains
 
         public IList<Products> GetAll()
         {
-            return uow.GetService<IProductsRepository>().GetAll().ToList();
+            var serviceType = uow.GetService<ITypeRepository>();
+            List<Products> mylist = uow.GetService<IProductsRepository>().GetAll().ToList();
+            foreach(Products p in mylist)
+            {
+                var type = serviceType.GetById(p.TypeId).TypeName;
+                p.TypeId = type + "-" + p.TypeId;
+            }
+            return mylist;
         }
         public Products Create(Products products)
         {
