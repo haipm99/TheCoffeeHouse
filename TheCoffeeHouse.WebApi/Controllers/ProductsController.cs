@@ -47,6 +47,33 @@ namespace TheCoffeeHouse.WebApi.Controllers
             return Ok(mylist);
         }
 
+        //desc : get 6 product for main page
+        [HttpGet("getMainPageProduct")]
+        public IActionResult GetProductForMainPage()
+        {
+            var repo = _uow.GetService<ProductsDomains>();
+            var list = repo.GetAll().Take(6);
+            List<object> mylist = new List<object>();
+            foreach(Products p in list)
+            {
+                var a = new
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Price = p.Price,
+                    TypeId = p.TypeId.Split("-")[0],
+                    Description = p.Description,
+                    Img = p.Img,
+                    Type = p.TypeId.Split("-")[1]
+                };
+                mylist.Add(a);
+            }
+            if (mylist.Count > 0)
+            {
+                return Ok(mylist);
+            }
+            return BadRequest("Dont have product");
+        }
         //desc : create product
         [HttpPost("create")]
         public IActionResult CreateProduct(ProductsModelCreate model)
