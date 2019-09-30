@@ -37,7 +37,7 @@ namespace TheCoffeeHouse.WebApi.Controllers
 
             repo.Create(invoice);
             _uow.SaveChanges();
-            return Ok("success");
+            return Ok(invoice);
         }
 
         //desc : create InvoiceDetail
