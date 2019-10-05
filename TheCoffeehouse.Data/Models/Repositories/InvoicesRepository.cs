@@ -38,7 +38,6 @@ namespace TheCoffeehouse.Data.Models.Repositories
         {
             return _dbSet.Where(i => i.UserId == id).ToList();
         }
-
         public Invoice UpdateDescription(string id, string desc)
         {
             Invoice invoice = this.GetById(id);

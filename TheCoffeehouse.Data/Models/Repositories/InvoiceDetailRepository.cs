@@ -27,6 +27,5 @@ namespace TheCoffeehouse.Data.Models.Repositories
         {
             return _dbSet.Where(detail => detail.IdPro == id).ToList();
         }
-
     }
 }
