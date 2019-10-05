@@ -11,6 +11,10 @@ namespace TheCoffeehouse.Data.Models.Repositories
         List<Invoice> GetInvoiceOfUser(string id);
 
         Invoice UpdateTotal(string id, float total);
+
+        List<Invoice> GetAllInvoice();
+
+        Invoice UpdateDescription(string id, string desc);
     }
 
     public class InvoiceRepository : BaseRepository<Invoice, string>, IInvoicesRepository
@@ -18,6 +22,11 @@ namespace TheCoffeehouse.Data.Models.Repositories
         public InvoiceRepository(DbContext context) : base(context)
         {
 
+        }
+
+        public List<Invoice> GetAllInvoice()
+        {
+            return _dbSet.ToList();
         }
 
         public override Invoice GetById(string id)
@@ -28,6 +37,13 @@ namespace TheCoffeehouse.Data.Models.Repositories
         public List<Invoice> GetInvoiceOfUser(string id)
         {
             return _dbSet.Where(i => i.UserId == id).ToList();
+        }
+
+        public Invoice UpdateDescription(string id, string desc)
+        {
+            Invoice invoice = this.GetById(id);
+            invoice.Description = desc;
+            return invoice;
         }
 
         public Invoice UpdateTotal(string id, float total)

@@ -29,4 +29,10 @@ namespace TheCoffeehouse.Data.Models.View
     {
         public string UserId { get; set; }
     }
+
+    public class UpdateDescriptionView
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
 }

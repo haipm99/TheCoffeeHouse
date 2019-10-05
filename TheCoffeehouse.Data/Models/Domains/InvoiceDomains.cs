@@ -25,5 +25,17 @@ namespace TheCoffeehouse.Data.Models.Domains
             return invoice;
         }
 
+        public List<Invoice> GetAllInvoice()
+        {
+            var invoice = uow.GetService<IInvoicesRepository>().GetAllInvoice();
+            return invoice;
+        }
+
+        public Invoice UpdateDescription(string id, string desc)
+        {
+            var invoice = uow.GetService<IInvoicesRepository>().UpdateDescription(id, desc);
+            uow.SaveChanges();
+            return invoice;
+        }
     }
 }
