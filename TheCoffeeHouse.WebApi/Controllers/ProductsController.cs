@@ -87,7 +87,8 @@ namespace TheCoffeeHouse.WebApi.Controllers
                 Price = model.Price,
                 Description = model.Description,
                 Img = model.Img,
-                TypeId = model.TypeId
+                TypeId = model.TypeId,
+                Status = true
             };
             repo.Create(newPro);
             _uow.SaveChanges();
@@ -106,7 +107,8 @@ namespace TheCoffeeHouse.WebApi.Controllers
                 Price = model.Price,
                 Description = model.Description,
                 Img = model.Img,
-                TypeId = model.TypeId
+                TypeId = model.TypeId,
+                Status = true
             };
             repo.Update(newPro);
             _uow.SaveChanges();
@@ -122,7 +124,7 @@ namespace TheCoffeeHouse.WebApi.Controllers
             var product = repo.GetProductById(id);
              if(product != null)
             {
-                repo.Delete(product);
+                product.Status = false;
                 _uow.SaveChanges();
                 return Ok(product);
             }

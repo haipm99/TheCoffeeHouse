@@ -16,6 +16,7 @@ namespace TheCoffeehouse.Data.Models
         public string TypeId { get; set; }
         public string Description { get; set; }
         public string Img { get; set; }
+        public bool? Status { get; set; }
 
         public virtual Type Type { get; set; }
         public virtual ICollection<InvoiceDetails> InvoiceDetails { get; set; }

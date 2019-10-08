@@ -17,7 +17,7 @@ namespace TheCoffeehouse.Data.Models.Domains
         public IList<Products> GetAll()
         {
             var serviceType = uow.GetService<ITypeRepository>();
-            List<Products> mylist = uow.GetService<IProductsRepository>().GetAll().ToList();
+            List<Products> mylist = uow.GetService<IProductsRepository>().GetAll().Where(p => p.Status == true).ToList();
             foreach(Products p in mylist)
             {
                 var type = serviceType.GetById(p.TypeId).TypeName;
